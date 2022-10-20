@@ -1,6 +1,13 @@
-/* function changeMode(){
-    console.log("Cliquei");
-} */
+function changeMode(){
+    changeClasses();   
+}
+
+function changeClasses(){
+    button.classList.toggle('dark-mode');
+    h1.classList.toggle('dark-mode');
+    body.classList.toggle('dark-mode');
+    footer.classList.toggle('dark-mode');
+}
 
 const button = document.getElementById('mode-selector');
 const h1 = document.getElementById('page-title');
@@ -10,6 +17,4 @@ const footer = document.getElementsByTagName('footer')[0];
 
 console.log(body)
 
-button.addEventListener('click', () => {
-    console.log("Cliquei");
-})
+button.addEventListener('click', changeMode)
