@@ -1,27 +1,35 @@
-function changeMode(){
-    changeClasses();   
-}
-
-function changeClasses(){
-    button.classList.toggle('darkModeClass');
-    h1.classList.toggle('darkModeClass');
-    body.classList.toggle('darkModeClass');
-    footer.classList.toggle('darkModeClass');
-}
-
-function changeText(){
-    if(button.classList.contains('darkModeClass')){
-        button.innerHTML = "Light Mode"
-    }
-}
-
 const darkModeClass = 'dark-mode'
 const button = document.getElementById('mode-selector');
 const h1 = document.getElementById('page-title');
 const body = document.getElementsByTagName('body')[0];
 const footer = document.getElementsByTagName('footer')[0];
+const darkMode = 'dark-mode'
+const lightMode = 'light-mode'
 
+function changeClasses() {
+    button.classList.toggle(darkMode);
+    h1.classList.toggle(darkMode);
+    body.classList.toggle(darkMode);
+    footer.classList.toggle(darkMode);
+}
 
-console.log(body)
+function changeText() {
+    const light = "Light Mode"
+    const dark = "Dark Mode"
 
-button.addEventListener('click', changeMode)
+    if (body.classList.contains(darkMode)) {
+        button.innerHTML = light
+        h1.innerHTML = dark + " ON"
+
+        return
+    }
+
+    button.innerHTML = dark
+    h1.innerHTML = light + " ON"
+    //h1.textContent = "Light Mode ON"
+}
+
+button.addEventListener('click', () => {
+    changeClasses();
+    changeText()
+})
